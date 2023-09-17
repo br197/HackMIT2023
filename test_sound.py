@@ -14,6 +14,12 @@ def main(page: ft.Page):
     chat = ft.Column()
     new_message = ft.TextField()
 
+    page.title = "WordsofAffirmation"
+    page.bgcolor = "#f2b835"
+    #page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    #page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.add(ft.Text(size=30, color="black", value="Welcome to Affirmations!"))
+
     def on_message(message: Message):
         if message.message_type == "chat_message":
             chat.controls.append(ft.Text(f"{message.user}: {message.text}"))
