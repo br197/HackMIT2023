@@ -19,4 +19,5 @@ a. user writes their thoughts and the ai makes options to help user identify wha
 b. Technology: NLP for sentiment analysis + some AI for making options (not sure what)
 
 
-
+Sources:
+Chatbot framework: https://github.com/flet-dev/examples/blob/main/python/tutorials/chat/chat.py
