@@ -1,7 +1,8 @@
-# HackMIT2023
-HackMIT Project 2023
+# PosiHead
 
-IDEAS:
+![image](https://github.com/br197/HackMIT2023/assets/62868606/226c035d-cd93-47ad-a06f-441d1f008466)
+
+HackMIT 2023 Project
 
 ## Burst the bubble
 a. User writes thoughts which will be processed by sentiment analysis using the transformers package. If the thought is negative, the thought becomes a bubble that the user can burst. If the thought is positive then it can be something permanent (a gold trophy or something). 
