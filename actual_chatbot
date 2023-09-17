@@ -1,0 +1,27 @@
+import flet as ft
+from flet import Page,Text
+
+def main(page: ft.Page):
+    page.title = "TalkWithMe"
+    page.bgcolor = "#f2b835"
+    #page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    #page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.add(ft.Text(size=30, color="black", value="Welcome to TalkwithMe!"))
+
+    chat = ft.Column() #creates chat window
+    chat_menu = ft.Container(bgcolor=ft.colors.WHITE, width = 400, height = 600, 
+                             border_radius = 4, content=chat, padding = 20)
+    
+    
+    new_message = ft.TextField(width = 400,color="black", 
+                               bgcolor="#d09613", hint_text="How are you?", )
+    
+
+    def send_click(e):
+        chat.controls.append(ft.Text(new_message.value, color="black", size="30")) #adds user text to chat.controls list
+        new_message.value = "" #clears user input box
+        page.update()
+    
+    page.add(chat, chat_menu, ft.Row(controls=[new_message, ft.ElevatedButton("Send", on_click=send_click, bgcolor="#d3da57", color="black")]))
+
+ft.app(main, assets_dir="assets", view=ft.AppView.WEB_BROWSER)
