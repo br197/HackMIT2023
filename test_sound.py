@@ -25,7 +25,7 @@ def main(page: ft.Page):
             chat.controls.append(ft.Text(f"{message.user}: {message.text}"))
         elif message.message_type == "login_message":
             chat.controls.append(
-                ft.Text(message.text, italic=True, color=ft.colors.BLACK45, size=12)
+                ft.Text(message.text, italic=True, color=ft.colors.BLACK45, size=15)
             )
         page.update()
 
@@ -55,8 +55,8 @@ def main(page: ft.Page):
     page.dialog = ft.AlertDialog(
         open=True,
         modal=True,
-        title=ft.Text("Welcome!"),
-        content=ft.Column([user_name], tight=True),
+        title=ft.Text(color='white',value="Welcome!"),
+        content=ft.Column([user_name], tight=True,),
         actions=[ft.ElevatedButton(text="Join chat", on_click=join_click)],
         actions_alignment="end",
     )
@@ -79,3 +79,5 @@ def generate_and_play_speech(text):
     engine.runAndWait()
 
 ft.app(target=main, view=ft.WEB_BROWSER)
+
+ft.app(main, assets_dir="assets", view=ft.AppView.WEB_BROWSER)
