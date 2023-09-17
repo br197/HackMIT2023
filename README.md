@@ -13,6 +13,12 @@ a. User can speak/text the ai and the ai can speak/text back to make the interac
 
 b. Technology: NLP (using transformers maybe)
 
+
+## Affirmations
+a. Hear verbal affirmations about yourself using TTS. Future modification: Add various voices.
+
+Future modifications:
+
 ## CBT Quiz
 a. user writes their thoughts and the ai makes options to help user identify what kind of a negative thought it is. this can help the user identify common negative thought patterns. if it's not a negative thought then there will be a positive thought option and once the user clicks it maybe we could have a confetti effect on the screen to celebrate (maybe).
 
