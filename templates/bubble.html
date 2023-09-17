@@ -1,0 +1,242 @@
+<style>
+:root {
+	--bubbleTiming: cubic-bezier(0.5,0.15,0.25,1.75);
+	font-size: calc(40px + (60 - 40) * (100vw - 320px) / (1280 - 320));
+}
+input {
+	font: 1em/1.5 sans-serif;
+}
+
+body {
+    background: #ffffff
+}
+
+.iphone-container {
+	background: #F2B835;
+	display: grid;
+	place-items: center;
+    width: 300px; /* iPhone width */
+    height: 600px;
+    border: 12px solid #000; /* Border style (change color as needed) */
+    border-radius: 10px; /* Rounded corners */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding inside the container */
+    text-align: center; /* Center text horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth effect */
+}
+
+/* Style for the image */
+.iphone-image {
+    width: 150px; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 150px;
+    margin-bottom: 20px; /* Center the image horizontally and add spacing */
+    animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+}
+
+        /* Style for text */
+        .iphone-text {
+            font-size: 21px; /* Adjust font size */
+            font-style: italic;
+            font-weight: bolder;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            line-height: 1.4;
+            padding-left: 10px;
+            padding-right: 10px;
+            animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+        }
+
+        /* Style for user input */
+        .iphone-input {
+            font-size: 18px; /* Adjust font size */
+            width: 80%;
+            margin: 0 auto;
+            padding: 3px;
+            opacity: .69;
+            animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+            border-radius: 10px;
+            /* Specify placeholder text style */
+            ::placeholder {
+                font-style: italic; /* Make the placeholder text italic */
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use the same font family as the rest of the text */
+                color: #999; /* Change to your desired color */
+            }
+            
+        }
+
+        .iphone-button {
+        font-size: 18px; /* Adjust font size */
+        width: 80%;
+        height: 50px;
+        margin: 10px auto; /* Add margin to create space between buttons */
+        padding: 10px 0; /* Adjust the top and bottom padding to make buttons taller */
+        background-color: #ffffff; /* Add background color for buttons (you can change this color) */
+        opacity: .69;
+        color: rgb(0, 0, 0); /* Text color for buttons */
+        border: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use the same font family as the rest of the text */
+        font-weight: bolder;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add transition effect on background color */
+    }
+
+    /* Hover effect for buttons */
+    .iphone-button:hover {
+        background-color: #d7d5d5; /* Change background color on hover (you can adjust the color) */
+    }
+
+        /* Animation keyframes for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+label, .bubble {
+	display: block;
+	-webkit-tap-highlight-color: transparent;
+}
+label {
+	animation: float 4s ease-in-out infinite;
+}
+.bubble, .bubble:before, .bubble:after  {
+	transition-duration: 0.2s;
+}
+.bubble, .bubble:after {
+	border-radius: 50%;
+}
+.bubble {
+	background-image:
+		radial-gradient(8% 8% at 22% 28%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 23% 27%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 24% 26%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 25% 25%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 26% 24%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 27% 23%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 28% 22%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%);
+	box-shadow:
+		0 -0.06em 0.1em hsl(0,90%,100%) inset,
+		0 -0.15em 0.4em hsl(0,90%,100%) inset,
+		0 0.05em 0.05em hsl(0,90%,100%) inset,
+		0.05em 0 0.1em hsl(0,90%,100%) inset,
+		-0.05em 0 0.1em hsl(0,90%,100%) inset,
+		0 0.1em 0.4em hsl(0,90%,100%) inset;
+	cursor: pointer;
+	position: relative;
+	width: 3em;
+	height: 3em;
+	transform-style: preserve-3d;
+	transition-property: box-shadow, transform, width, height;
+	transition-timing-function: ease-in-out, ease-in-out, var(--bubbleTiming), var(--bubbleTiming);
+	will-change: transform;
+	-webkit-appearance: none;
+	appearance: none;
+	z-index: 0;
+}
+.bubble:before, .bubble:after {
+	content: "";
+	display: block;
+	position: absolute;
+	transition-timing-function: var(--bubbleTiming);
+}
+
+.bubble:after {
+	background:
+		radial-gradient(100% 100% at center,hsla(0,0%,0%,0) 35%,hsla(0,0%,0%,0.2) 48%,hsla(0,0%,0%,0) 50%);
+	filter: blur(4px);
+	top: 2em;
+	left: 0.6em;
+	width: 100%;
+	height: 100%;
+	transform: translate3d(0,0,-1px);
+	z-index: -2;
+}
+.bubble:focus, .bubble:hover {
+	transform: scale(1.1);
+	outline: none;
+}
+.bubble:focus:active, .bubble:hover:active {
+	width: 3.6em;
+	height: 2.4em;
+}
+.bubble:focus:before, .bubble:hover:before {
+	filter: drop-shadow(0.75em 0.75em 4px hsla(0,0%,0%,0.2));
+}
+.bubble:focus:after, .bubble:hover:after {
+	transform: translate3d(0.15em,0.15em,-1px);
+}
+.bubble:checked {
+	box-shadow:
+		0 -0.06em 0.1em hsl(120,90%,100%) inset,
+		0 -0.15em 0.4em hsl(120,90%,45%) inset,
+		0 0.05em 0.05em hsl(120,90%,45%) inset,
+		0.05em 0 0.1em hsl(120,90%,100%) inset,
+		-0.05em 0 0.1em hsl(120,90%,100%) inset,
+		0 0.1em 0.4em hsl(120,90%,60%) inset;
+}
+.bubble:checked:before {
+	border-radius: 0.25em;
+	width: 0.5em;
+}
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	label {
+		animation: none;
+	}
+	.bubble, .bubble:before, .bubble:after {
+		transition-duration: 0s;
+	}
+	.bubble:focus, .bubble:hover {
+		transform: scale(1);
+	}
+	.bubble:focus:active, .bubble:hover:active {
+		width: 3em;
+		height: 3em;
+	}
+	.bubble:focus:before, .bubble:hover:before {
+		filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+	}
+	.bubble:focus:after, .bubble:hover:after {
+		transform: translate3d(0,0,-1px);
+	}
+}
+/* Animations */
+@keyframes float {
+	from, to {
+		transform: translate(0,3%);
+	}
+	25% {
+		transform: translate(-3%,0);
+	}
+	50% {
+		transform: translate(0,-3%);
+	}
+	75% {
+		transform: translate(3%,0);
+	}
+}
+
+  .chat-bubble {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    align-self: flex-start;
+  }
+
+</style>
+<body>
+    <!-- iPhone-like container -->
+    <div class="iphone-container" id="iphone-container">
+        <!-- Image -->
+        <label><input class="bubble" type="checkbox" name="dummy" value="on"></label>
+        <!-- Text -->
+        <input type="text" class="iphone-text" id="messageInput">
+        <button class="iphone-button" onclick="sendMessage()">Send</button>
+    </div>
+</body>
