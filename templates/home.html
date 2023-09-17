@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>posihead Mockup</title>
+    <style>
+        /* Styles for the iPhone-like container */
+        .iphone-container {
+            width: 300px; /* iPhone width */
+            height: 600px; /* iPhone height */
+            background-color: #F2B835; /* Background color (change to your desired hex code) */
+            border: 12px solid #000; /* Border style (change color as needed) */
+            border-radius: 10px; /* Rounded corners */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add some padding inside the container */
+            text-align: center; /* Center text horizontally */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for depth effect */
+        }
+
+        /* Style for the image */
+        .iphone-image {
+            width: 150px; /* Adjust image width */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 150px;
+            margin-bottom: 20px; /* Center the image horizontally and add spacing */
+            animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+        }
+
+        /* Style for text */
+        .iphone-text {
+            font-size: 21px; /* Adjust font size */
+            font-style: italic;
+            font-weight: bolder;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            line-height: 1.4;
+            padding-left: 10px;
+            padding-right: 10px;
+            animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+        }
+
+        /* Style for user input */
+        .iphone-input {
+            font-size: 18px; /* Adjust font size */
+            width: 80%;
+            margin: 0 auto;
+            padding: 3px;
+            opacity: .69;
+            animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+            border-radius: 10px;
+            /* Specify placeholder text style */
+            ::placeholder {
+                font-style: italic; /* Make the placeholder text italic */
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use the same font family as the rest of the text */
+                color: #999; /* Change to your desired color */
+            }
+            
+        }
+
+        .iphone-button {
+        font-size: 18px; /* Adjust font size */
+        width: 80%;
+        height: 50px;
+        margin: 10px auto; /* Add margin to create space between buttons */
+        padding: 10px 0; /* Adjust the top and bottom padding to make buttons taller */
+        background-color: #ffffff; /* Add background color for buttons (you can change this color) */
+        opacity: .69;
+        color: rgb(0, 0, 0); /* Text color for buttons */
+        border: none;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Use the same font family as the rest of the text */
+        font-weight: bolder;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Add transition effect on background color */
+    }
+
+    /* Hover effect for buttons */
+    .iphone-button:hover {
+        background-color: #d7d5d5; /* Change background color on hover (you can adjust the color) */
+    }
+
+        /* Animation keyframes for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- iPhone-like container -->
+    <div class="iphone-container" id="iphone-container">
+        <!-- Image -->
+        <img src="/static/images/my_icon.png" alt="Image" class="iphone-image">
+
+        <!-- Text -->
+        <p class="iphone-text">"posiHead is to help you increase your positive thinking while you're storing healthy affirmations inside your head."</p>
+    </div>
+
+<!-- JavaScript to change content after 10 seconds and on Enter key press -->
+<script>
+    setTimeout(function () {
+        // Replace the image and text with new content
+        const container = document.getElementById("iphone-container");
+        container.innerHTML = ''; // Remove existing content
+
+        // Initialize variables to store user data
+        let userName = ''; // Store the user's name
+        let userEmail = ''; // Store the user's email
+        let userPassword = ''; // Store the user's password
+
+        // Create and append new content (image, question text, and user input for name)
+        const newImage = document.createElement('img');
+        newImage.src = '/static/images/my_icon.png';
+        newImage.alt = 'Image';
+        newImage.className = 'iphone-image';
+
+        const questionText = document.createElement('p');
+        questionText.className = 'iphone-text';
+        questionText.textContent = '"What is your name?"';
+
+        const userInput = document.createElement('input');
+        userInput.type = 'text';
+        userInput.className = 'iphone-input';
+        userInput.placeholder = 'Enter here...'; // Add placeholder text
+        userInput.id = 'name-input'; // Add an ID to the input element
+
+        // Append the new content to the container
+        container.appendChild(newImage);
+        container.appendChild(questionText);
+        container.appendChild(userInput);
+
+        // Function to transition to the next content (email input)
+        function transitionToEmailInput() {
+            // Transition to the next content (email input)
+            const emailInput = document.createElement('input');
+            emailInput.type = 'email';
+            emailInput.className = 'iphone-input';
+            emailInput.placeholder = 'Enter here...'; // Add placeholder text
+            emailInput.id = 'email-input'; // Add an ID to the input element
+
+            // Remove the existing name input
+            container.removeChild(userInput);
+            // Remove the existing image and question text
+            container.removeChild(newImage);
+            container.removeChild(questionText);
+
+            // Create and append new image and question text
+            const newImage2 = document.createElement('img');
+            newImage2.src = '/static/images/my_icon.png'; // New image source
+            newImage2.alt = 'Image';
+            newImage2.className = 'iphone-image';
+
+            const questionText2 = document.createElement('p');
+            questionText2.className = 'iphone-text';
+            questionText2.textContent = '"What is your email?"'; // New question text
+
+            // Append the new image, question text, and email input
+            container.appendChild(newImage2);
+            container.appendChild(questionText2);
+            container.appendChild(emailInput);
+
+            // Focus on the email input for user convenience
+            emailInput.focus();
+
+            // Add an event listener to the email input for Enter key press
+            emailInput.addEventListener('keyup', function (event) {
+                if (event.key === 'Enter') {
+                    // Store the entered email
+                    userEmail = emailInput.value;
+
+                    // Transition to the next content (password input)
+                    const passwordInput = document.createElement('input');
+                    passwordInput.type = 'password';
+                    passwordInput.className = 'iphone-input';
+                    passwordInput.placeholder = 'Enter here...'; // Add placeholder text
+                    passwordInput.id = 'password-input'; // Add an ID to the input element
+
+                    // Remove the existing email input
+                    container.removeChild(emailInput);
+                    // Remove the existing image and question text
+                    container.removeChild(newImage2);
+                    container.removeChild(questionText2);
+
+                    // Create and append new image and question text
+                    const newImage3 = document.createElement('img');
+                    newImage3.src = '/static/images/my_icon.png'; // New image source
+                    newImage3.alt = 'Image';
+                    newImage3.className = 'iphone-image';
+
+                    const questionText3 = document.createElement('p');
+                    questionText3.className = 'iphone-text';
+                    questionText3.textContent = '"What is your password?"'; // New question text
+
+                    // Append the new image, question text, and password input
+                    container.appendChild(newImage3);
+                    container.appendChild(questionText3);
+                    container.appendChild(passwordInput);
+
+                    // Focus on the password input for user convenience
+                    passwordInput.focus();
+
+                    // Add an event listener to the password input for Enter key press
+                    passwordInput.addEventListener('keyup', function (event) {
+                        if (event.key === 'Enter') {
+                            // Store the entered password
+                            userPassword = passwordInput.value;
+
+                            // Transition to the final content (Nice to meet you)
+                            container.innerHTML = ''; // Remove existing content
+
+                            // Create and append new image and text
+                            const finalImage = document.createElement('img');
+                            finalImage.src = '/static/images/my_icon.png'; // New image source
+                            finalImage.alt = 'Image';
+                            finalImage.className = 'iphone-image';
+
+                            const finalText = document.createElement('p');
+                            finalText.className = 'iphone-text';
+                            finalText.textContent = `"Nice to meet you, ${userName}."`; // Display the user's name
+
+                            // Append the new image and text
+                            container.appendChild(finalImage);
+                            container.appendChild(finalText);
+
+                            // After 5 seconds, transition to the next content
+                            setTimeout(function () {
+                                // Remove the existing content
+                                container.innerHTML = '';
+
+                                // Create and append new content (image, text, and buttons)
+                                const newImage4 = document.createElement('img');
+                                newImage4.src = '/static/images/my_icon.png'; // New image source
+                                newImage4.alt = 'Image';
+                                newImage4.className = 'iphone-image';
+
+                                const newText = document.createElement('p');
+                                newText.className = 'iphone-text';
+                                newText.textContent = `"What should we do today, ${userName}?"`;
+
+                                // Create and append button options
+                                const button1 = document.createElement('button');
+                                button1.className = 'iphone-button'; // Apply the iphone-button class
+                                button1.textContent = 'Burst the Bubble';
+                                button1.addEventListener('click', function () {
+                                // Handle button click for Option 1
+                                // You can add your logic here
+                                });
+
+                                const button2 = document.createElement('button');
+                                button2.className = 'iphone-button'; // Apply the iphone-button class
+                                button2.textContent = 'Talk to Me';
+                                button2.addEventListener('click', function () {
+                                // Handle button click for Option 2
+                                // You can add your logic here
+                                });
+
+                                const button3 = document.createElement('button');
+                                button3.className = 'iphone-button'; // Apply the iphone-button class
+                                button3.textContent = 'CBT Quiz';
+                                button3.addEventListener('click', function () {
+                                // Handle button click for Option 3
+                                // You can add your logic here
+                                });
+
+                                // Append the new image, text, and buttons
+                                container.appendChild(newImage4);
+                                container.appendChild(newText);
+                                container.appendChild(button1);
+                                container.appendChild(button2);
+                                container.appendChild(button3);
+                            }, 5000); // 5 seconds delay
+                        }
+                    });
+                }
+            });
+        }
+
+        // Add an event listener to the name input for Enter key press
+        userInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                // Store the entered name
+                userName = userInput.value;
+                transitionToEmailInput(); // Call the function to transition to the email input
+            }
+        });
+    }, 10000); /* Add a delay of 10 seconds (10000 milliseconds) */
+</script>
+
+</body>
+</html>
