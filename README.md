@@ -2,7 +2,7 @@
 
 ![image](https://github.com/br197/HackMIT2023/assets/62868606/226c035d-cd93-47ad-a06f-441d1f008466)
 
-A HackMIT 2023 Project, this mental health application assists users in regulating their emotions through interactive games. The app allows users to input thoughts and uses sentiment analysis to classify and respond to these thoughts, offering cognitive behavioral therapy (CBT) strategies and positive affirmations to promote mental wellness.
+A [HackMIT 2023 Project](https://devpost.com/software/posihead), this mental health application assists users in regulating their emotions through interactive games. The app allows users to input thoughts and uses sentiment analysis to classify and respond to these thoughts, offering cognitive behavioral therapy (CBT) strategies and positive affirmations to promote mental wellness.
 
 It includes the following interactive features to gamify CBT:
 
